@@ -24,7 +24,7 @@ public class Queries extends DBConn {
             }
 
         } catch (SQLException e) {
-            System.out.println(String.format("Error occured during fetchRoles: %s", e.getMessage()));
+            System.out.println(String.format("Error occured during fetchRolesForPerson: %s", e.getMessage()));
         }
 
         String opt = String.format("%s acts as:\n", name);
@@ -38,8 +38,35 @@ public class Queries extends DBConn {
     // 2) Finne hvilke filmer som en gitt skuespiller opptrer i.
     public void fetchMoviesForPerson (String name) {
         System.out.println("\u001B[34mFetching movies.\u001B[0m");
+        List<String> movies = new ArrayList<>();
 
-        /* INSERT CODE HERE */
+        try {
+            PreparedStatement stmt = connection.prepareStatement("SELECT M.tittel FROM Person P " +
+                    "INNER JOIN SkuespillerI S " +
+                    "ON P.fnr = S.fnr " +
+                    "INNER JOIN Media M " +
+                    "ON S.MediaID = M.MediaID " +
+                    "WHERE P.navn=?");
+            stmt.setString(1, name);
+
+            if (stmt.execute()) {
+                ResultSet res = stmt.getResultSet();
+
+                while (res.next()) {
+                    movies.add(res.getString(1));
+                }
+            }
+
+        } catch (SQLException e) {
+            System.out.println(String.format("Error occured during fetchMoviesForPerson: %s", e.getMessage()));
+        }
+
+        String opt = String.format("%s appears in:\n", name);
+        for (String movie : movies) {
+            opt += String.format("- %s\n", movie);
+        }
+
+        System.out.println(opt);
     }
 
     // 3) Finne hvilke filmselskap som lager flest filmer innen hver sjanger ("Comedy", Action", "Romance"++)
