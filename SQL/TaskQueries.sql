@@ -20,3 +20,10 @@ SELECT * FROM Selskap S
 		ON H.MediaID = M.MediaID
 	INNER JOIN Sjanger SJ 
 		ON SJ.SjangerID = H.SjangerID;
+        
+# C Bedre        
+SELECT Sjanger.Sjanger, Selskap.url,  count(HarSjanger.SjangerID) as AntallFilmer
+                    FROM HarSjanger, EierAvMedia, Sjanger, Selskap
+                    WHERE EierAvMedia.SelskapID = Selskap.SelskapID
+                    AND Sjanger.SjangerID = HarSjanger.SjangerID
+                    AND HarSjanger.MediaID = EierAvMedia.MediaID GROUP BY Sjanger.Sjanger, Selskap.url;
