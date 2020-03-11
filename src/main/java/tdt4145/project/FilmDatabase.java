@@ -58,7 +58,7 @@ public class FilmDatabase {
     public static void main(String[] args) {
         FilmDatabase fd = new FilmDatabase();
 
-        /*fd.welcomeMsg();
-        fd.userInteraction();*/
+        fd.welcomeMsg();
+        fd.userInteraction();
     }
 }
