@@ -23,14 +23,15 @@ public abstract class DBConn {
 
         try {
 
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
             // Configuration for username and password
             Properties p = new Properties();
             p.put("user", "root");
             p.put("password", "password");
 
-            connection = DriverManager.getConnection("jdbc:mysql://localhost/?characterEncoding=UTF-8", p);
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/FilmDB", p);
+            System.out.println("Connection initialized.");
 
         } catch (Exception e) {
             throw new RuntimeException("Unable to connect", e);

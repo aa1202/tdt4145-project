@@ -1,5 +1,7 @@
 package tdt4145.project;
 
+import tdt4145.project.Entities.Bruker;
+
 import java.util.Scanner;
 
 public class FilmDatabase {
@@ -55,7 +57,8 @@ public class FilmDatabase {
     }
     public static void main(String[] args) {
         FilmDatabase fd = new FilmDatabase();
-        fd.welcomeMsg();
-        fd.userInteraction();
+
+        /*fd.welcomeMsg();
+        fd.userInteraction();*/
     }
 }
