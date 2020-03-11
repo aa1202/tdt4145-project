@@ -20,6 +20,10 @@ repositories {
     jcenter()
 }
 
+run {
+    standardInput = System.in
+}
+
 dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:28.1-jre'
@@ -32,5 +36,5 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClassName = 'tdt4145.project.App'
+    mainClassName = 'tdt4145.project.FilmDatabase'
 }

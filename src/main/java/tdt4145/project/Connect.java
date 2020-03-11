@@ -36,8 +36,4 @@ public abstract class Connect {
             throw new RuntimeException("Unable to connect", e);
         }
     }
-
-    public static void main(String[] args) {
-        connect();
-    }
 }
