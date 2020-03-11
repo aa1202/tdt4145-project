@@ -53,7 +53,6 @@ VALUES ('3', 'DeepDap');
 INSERT INTO Bruker (BrukerID, Brukernavn)
 VALUES ('4', 'aa1202');
 
-
 # Serie
 INSERT INTO Serie (SerieID, Tittel)
 VALUES ('1', 'Sex Education');
@@ -94,6 +93,12 @@ VALUES ('2', 'Meeh, seen better', '7', '2', '2');
 INSERT INTO Anmeldelse (AnmeldelseID, Tekst, Rating, BrukerID, MediaID)
 VALUES ('3', 'This series made me depressed...', '2', '3', '3');
 
+INSERT INTO Anmeldelse (AnmeldelseID, Tekst, Rating, BrukerID, MediaID)
+VALUES ('4', 'Oh well, ok', '3', '1', '2');
+
+INSERT INTO Anmeldelse (AnmeldelseID, Tekst, Rating, BrukerID, MediaID)
+VALUES ('5', 'Lol very nice yes yes', '5', '1', '3');
+
 # SkuespillerI
 INSERT INTO SkuespillerI (Fnr, MediaID, Rolle)
 VALUES ('1', '1', 'Papa John');
@@ -103,6 +108,12 @@ VALUES ('2', '2', 'Lucky Luke');
 
 INSERT INTO SkuespillerI (Fnr, MediaID, Rolle)
 VALUES ('3', '3', 'Luke Smith');
+
+INSERT INTO SkuespillerI (Fnr, MediaID, Rolle)
+VALUES ('1', '2', 'Billy Bob');
+
+INSERT INTO SkuespillerI (Fnr, MediaID, Rolle)
+VALUES ('1', '3', 'Zohan');
 
 # SkrevetAv
 INSERT INTO SkrevetAv (Fnr, MediaID)
@@ -153,3 +164,36 @@ VALUES ('2', '2');
 
 INSERT INTO EpisodeI (MediaID, Nummer)
 VALUES ('3', '3');
+
+# HarSjanger
+INSERT INTO HarSjanger (SjangerID, MediaID)
+VALUES ('1', '1');
+
+INSERT INTO HarSjanger (SjangerID, MediaID)
+VALUES ('2', '2');
+
+INSERT INTO HarSjanger (SjangerID, MediaID)
+VALUES ('3', '3');
+
+INSERT INTO HarSjanger (SjangerID, MediaID)
+VALUES ('3', '2');
+
+INSERT INTO HarSjanger (SjangerID, MediaID)
+VALUES ('3', '1');
+
+
+# EierAvMedia
+INSERT INTO EierAvMedia (SelskapID, MediaID)
+VALUES ('1', '1');
+
+INSERT INTO EierAvMedia (SelskapID, MediaID)
+VALUES ('2', '2');
+
+INSERT INTO EierAvMedia (SelskapID, MediaID)
+VALUES ('3', '3');
+
+INSERT INTO EierAvMedia (SelskapID, MediaID)
+VALUES ('1', '2');
+
+INSERT INTO EierAvMedia (SelskapID, MediaID)
+VALUES ('1', '3');

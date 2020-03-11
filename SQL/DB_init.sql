@@ -167,3 +167,27 @@ CREATE TABLE EpisodeI (
 		REFERENCES Sesong (Nummer)
         ON DELETE CASCADE
 );
+
+CREATE TABLE EierAvMedia (
+	SelskapID int,
+    FOREIGN KEY (SelskapID)
+		REFERENCES Selskap (SelskapID)
+        ON DELETE CASCADE,
+        
+	MediaID INT,
+	FOREIGN KEY (MediaID)
+		REFERENCES Media (MediaID)
+        ON DELETE CASCADE
+);
+
+CREATE TABLE HarSjanger (
+	SjangerID int,
+    FOREIGN KEY (SjangerID)
+		REFERENCES Sjanger (SjangerID)
+        ON DELETE CASCADE,
+        
+	MediaID INT,
+	FOREIGN KEY (MediaID)
+		REFERENCES Media (MediaID)
+        ON DELETE CASCADE
+);
