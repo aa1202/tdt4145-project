@@ -15,7 +15,7 @@ public abstract class Connect {
 
     protected static Connection connection;
 
-    public void DBConn () {
+    public void DBConn() {
 
     }
 
@@ -30,7 +30,7 @@ public abstract class Connect {
             p.put("user", "root");
             p.put("password", "password");
 
-            connection = DriverManager.getConnection("jdbc:mysql://localhost/?characterEncoding=UTF-8",p);
+            connection = DriverManager.getConnection("jdbc:mysql://localhost/?characterEncoding=UTF-8", p);
 
         } catch (Exception e) {
             throw new RuntimeException("Unable to connect", e);
