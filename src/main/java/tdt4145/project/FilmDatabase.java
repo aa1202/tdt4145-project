@@ -56,9 +56,10 @@ public class FilmDatabase {
         while (testing);
     }
     public static void main(String[] args) {
-        FilmDatabase fd = new FilmDatabase();
+        Queries q = new Queries();
+        q.connect();
 
-        fd.welcomeMsg();
-        fd.userInteraction();
+        // Queries
+        q.fetchRolesForPerson("Ola Halvorsen");
     }
 }

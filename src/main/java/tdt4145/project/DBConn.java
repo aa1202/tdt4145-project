@@ -12,15 +12,11 @@ import java.sql.*;
 import java.util.Properties;
 
 public abstract class DBConn {
-
     protected static Connection connection;
 
-    public void DBConn() {
-
-    }
+    public void DBConn() {}
 
     public static void connect() {
-
         try {
 
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -31,10 +27,10 @@ public abstract class DBConn {
             p.put("password", "password");
 
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/FilmDB", p);
-            System.out.println("Connection initialized.");
+            System.out.println("\u001B[32mConnection initialized!\u001B[0m\n");
 
         } catch (Exception e) {
-            throw new RuntimeException("Unable to connect", e);
+            throw new RuntimeException("\\u001B[31mUnable to connect!\u001B[0m\n", e);
         }
     }
 }
