@@ -1,6 +1,8 @@
 package tdt4145.project.Entities;
 
-public class Anmeldelse {
+import tdt4145.project.DBConn;
+
+public class Anmeldelse extends DBConn {
     private int AnmeldelseID;
     private String tekst;
     private int rating;

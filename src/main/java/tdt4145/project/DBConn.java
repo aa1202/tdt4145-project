@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.sql.*;
 import java.util.Properties;
 
-public abstract class Connect {
+public abstract class DBConn {
 
     protected static Connection connection;
 

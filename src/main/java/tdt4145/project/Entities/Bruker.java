@@ -1,6 +1,8 @@
 package tdt4145.project.Entities;
 
-public class Bruker {
+import tdt4145.project.DBConn;
+
+public class Bruker extends DBConn {
     private int BrukerID;
     private String brukernavn;
 
