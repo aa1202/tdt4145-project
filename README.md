@@ -3,14 +3,14 @@
 ## SQL
 Sørg for at du har [MySQL Server](https://dev.mysql.com/downloads/mysql/). Installer og sett passordet til "password".
 
-I SQL-mappen finnes det `to` script som må kjøres i [MySQL Workbench](https://www.mysql.com/products/workbench/):
+I `SQL-mappen` finnes det `to` script som må kjøres i [MySQL Workbench](https://www.mysql.com/products/workbench/):
 - `DB_init.sql` oppretter databasen, alle tabellene samt relasjonene.
 - `Populate.sql` fyller databasen med test-data.
 
 
 ## Java
 
-### I `src/main/java/tdt4145.project` ligger følgende
+I `src/main/java/tdt4145.project` ligger følgende
 
 **DBConn.java**:
 
