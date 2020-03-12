@@ -60,7 +60,8 @@ public class FilmDatabase {
         q.connect();
 
         // Queries
-        q.fetchRolesForPerson("Ola Halvorsen");
-        q.fetchMoviesForPerson("Ola Halvorsen");
+        // q.fetchRolesForPerson("Ola Halvorsen");
+        // q.fetchMoviesForPerson("Ola Halvorsen");
+        q.fetchTopCompaniesByGenres();
     }
 }
