@@ -96,6 +96,7 @@ public class Queries extends DBConn {
                     if (!results.containsKey(res.getString(2))) {
                         results.put(res.getString(2), new ArrayList<>());
                     }
+
                     List<String> values = new ArrayList<>();
 
                     values.add(res.getString(1));
@@ -118,7 +119,6 @@ public class Queries extends DBConn {
             }
             System.out.println();
         }
-
     }
 
     // 4) Sette inn en ny film med regissør, skuespillere og det som hører med.
