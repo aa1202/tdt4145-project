@@ -52,16 +52,22 @@ public class FilmDatabase {
                     break;
                 case 3:
                     ArrayList<ArrayList<String>> query = new ArrayList<ArrayList<String>>();
-                    ArrayList<String> movieName = new ArrayList<>();
+                    ArrayList<String> movie= new ArrayList<>();
                     ArrayList<String> directors = new ArrayList<>();
                     ArrayList<String> writers = new ArrayList<>();
                     ArrayList<String> actors = new ArrayList<>();
 
-                    System.out.println("Navn på film: ");
+                    System.out.println("Navn på film, utgivelsesår, lanseringsdato, beskrivelse, lengde, selskap: ");
 
-                    answer = stringScanner.nextLine();
-                    movieName.add(answer);
-                    query.add(movieName);
+                    while (stringScanner.hasNext()) {
+                        answer = stringScanner.nextLine();
+                        if (answer.equals("q")) {
+                            break;
+                        } else {
+                            movie.add(answer);
+                        }
+                    }
+                    query.add(movie);
 
                     System.out.println("Navn på regissør: ");
                     while (stringScanner.hasNext()) {
@@ -97,7 +103,17 @@ public class FilmDatabase {
                     System.out.println(query);
                     break;
                 case 4:
-                    System.out.println("Valgte 4");
+                    System.out.println("Hvilken media-type vil du anmelde?");
+                    answer = stringScanner.nextLine();
+                    if (answer.equals("Film") || answer.equals("Episode")) {
+                        System.out.println("film");
+                    } else if (answer.equals("Sessong")) {
+                        System.out.println("sessong");
+                    } else if (answer.equals("Serie")) {
+                        System.out.println("serie");
+                    } else {
+                        System.out.println("u suck");
+                    }
                     break;
                 case 5:
                     printInfo();
@@ -114,10 +130,10 @@ public class FilmDatabase {
         Queries q = new Queries();
         q.connect();
 
-        // d.welcomeMsg();
-        // fd.userInteraction(q);
+        fd.welcomeMsg();
+        fd.userInteraction(q);
         // Queries=
         // q.fetchMoviesForPerson("Ola Halvorsen");
-        q.fetchTopCompaniesByGenres();
+        // q.fetchTopCompaniesByGenres();
     }
 }
