@@ -60,7 +60,7 @@ VALUES ('aa1202');
 INSERT INTO Serie (Tittel)
 VALUES ('Sex Education');
 
-INSERT INTO Serie (SerieID, Tittel)
+INSERT INTO Serie (Tittel)
 VALUES ('Prison Break');
 
 INSERT INTO Serie (Tittel)

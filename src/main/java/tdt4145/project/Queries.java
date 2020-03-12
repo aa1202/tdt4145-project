@@ -122,23 +122,25 @@ public class Queries extends DBConn {
     }
 
     // 4) Sette inn en ny film med regissør, skuespillere og det som hører med.
-    public void insertNewMovie (List<List<String>> data) {
+    public void insertNewMovie (List<String[]> data) {
         System.out.println("\u001B[34mInserting new movie.\u001B[0m");
 
         // Movie
         try {
+            System.out.println("før stmt");
+
             PreparedStatement stmt = connection.prepareStatement("INSERT INTO Media (tittel, utgivelsesår, lanseringsdato, beskrivelse, lengde, selskapid) " +
                     "VALUES (?, ?, ?, ?, ?, (SELECT SelskapID from Selskap WHERE Navn=?))");
 
-            stmt.setString(1, data.get(0).get(0));
-            stmt.setString(2, data.get(0).get(1));
-            stmt.setString(3, data.get(0).get(2));
-            stmt.setString(4, data.get(0).get(3));
-            stmt.setInt(5, Integer.parseInt(data.get(0).get(4)));
-            stmt.setString(6, data.get(0).get(5));
+            stmt.setString(1, data.get(0)[0]);
+            stmt.setString(2, data.get(0)[1]);
+            stmt.setString(3, data.get(0)[2]);
+            stmt.setString(4, data.get(0)[3]);
+            stmt.setInt(5, Integer.parseInt(data.get(0)[4]));
+            stmt.setString(6, data.get(0)[5]);
 
             stmt.execute();
-            System.out.println(String.format("%s added!", data.get(0).get(0)));
+            System.out.println(String.format("%s added!", data.get(0)[0]));
 
         } catch (SQLException e) {
             System.out.println(String.format("Error occured during movie insert: %s", e.getMessage()));
@@ -149,7 +151,7 @@ public class Queries extends DBConn {
             for (String dir : data.get(1)) {
                 PreparedStatement stmt = connection.prepareStatement("INSERT INTO RegiAv (fnr, MediaID) VALUES ((SELECT fnr FROM Person WHERE navn=?), (SELECT MediaID FROM Media WHERE tittel=?))");
                 stmt.setString(1, dir);
-                stmt.setString(2, data.get(0).get(0));
+                stmt.setString(2, data.get(0)[0]);
                 stmt.execute();
 
                 System.out.println(String.format("%s added as director.", dir));
@@ -164,7 +166,7 @@ public class Queries extends DBConn {
             for (String wr : data.get(2)) {
                 PreparedStatement stmt = connection.prepareStatement("INSERT INTO SkrevetAv (fnr, MediaID) VALUES ((SELECT fnr FROM Person WHERE navn=?), (SELECT MediaID FROM Media WHERE tittel=?))");
                 stmt.setString(1, wr);
-                stmt.setString(2, data.get(0).get(0));
+                stmt.setString(2, data.get(0)[0]);
                 stmt.execute();
 
                 System.out.println(String.format("%s added as director.", wr));
@@ -176,15 +178,15 @@ public class Queries extends DBConn {
 
         // Actor
         try {
-            for (int i = 0; i < data.get(3).size(); i += 2) {
+            for (int i = 0; i < data.get(3).length; i += 2) {
                 PreparedStatement stmt = connection.prepareStatement("INSERT INTO SkuespillerI (fnr, MediaID, rolle) VALUES ((SELECT fnr FROM Person WHERE navn=?), (SELECT MediaID FROM Media WHERE tittel=?), ?)");
-                stmt.setString(1, data.get(3).get(i));
-                stmt.setString(2, data.get(0).get(0));
-                stmt.setString(3, data.get(3).get(i+1));
+                stmt.setString(1, data.get(3)[i]);
+                stmt.setString(2, data.get(0)[0]);
+                stmt.setString(3, data.get(3)[i+1]);
 
                 stmt.execute();
 
-                System.out.println(String.format("%s added as actor.", data.get(3).get(i)));
+                System.out.println(String.format("%s added as actor.", data.get(3)[i]));
             }
 
         } catch (SQLException e) {

@@ -38,12 +38,14 @@ public class FilmDatabase {
                 case 0:
                     System.out.println("Skriv inn navnet på skuespiller: ");
                     answer = stringScanner.nextLine();
-                    System.out.println(" ");
+
+                    System.out.println();
                     q.fetchRolesForPerson(answer);
                     break;
                 case 1:
                     System.out.println("Skriv inn navnet på skuespiller: ");
                     answer = stringScanner.nextLine();
+
                     System.out.println();
                     q.fetchMoviesForPerson(answer);
                     break;
@@ -55,7 +57,8 @@ public class FilmDatabase {
                     List<String[]> query = new ArrayList<>();
 
                     System.out.println("Navn på film, utgivelsesår, lanseringsdato, beskrivelse, lengde, selskap: ");
-                    String[] movieInfo = stringScanner.nextLine().split(",");
+                    String[] movieInfo = stringScanner.nextLine().trim().split("\\s*,\\s*");
+
                     if(movieInfo.length != 6) {
                         System.out.println("Oppgi info slik: Navn på film, utgivelsesår, lanseringsdato, beskrivelse, lengde, selskap");
                         break;
@@ -64,7 +67,8 @@ public class FilmDatabase {
                     System.out.println();
 
                     System.out.println("Navn på regissører (skilt med komma): ");
-                    String[] directors = stringScanner.nextLine().split(",");
+                    String[] directors = stringScanner.nextLine().trim().split("\\s*,\\s*");
+
                     if (directors.length <= 0) {
                         System.out.println("Oppi minst en regissør.");
                         break;
@@ -73,7 +77,8 @@ public class FilmDatabase {
                     System.out.println();
 
                     System.out.println("Navn på manusforfatter(e): ");
-                    String[] writers = stringScanner.nextLine().split(",");
+                    String[] writers = stringScanner.nextLine().trim().split("\\s*,\\s*");
+
                     if (writers.length <= 0) {
                         System.out.println("Oppi minst en manusforfatter.");
                         break;
@@ -83,13 +88,17 @@ public class FilmDatabase {
 
                     System.out.println("Navn på skuespiller og rolle");
                     System.out.println("Eksempel: Tom Hanks, Forrest Gump, Jim Carrey, Ace Ventura");
-                    String[] actors = stringScanner.nextLine().split(",");
+                    String[] actors = stringScanner.nextLine().trim().split("\\s*,\\s*");
+
                     if (actors.length <= 1) {
                         System.out.println("Oppgi minst en skuespiller og rollen");
                         break;
                     }
+
                     query.add(actors);
                     System.out.println();
+
+                    q.insertNewMovie(query);
                     break;
 
                 case 4:
@@ -152,12 +161,9 @@ public class FilmDatabase {
     public static void main(String[] args) {
         FilmDatabase fd = new FilmDatabase();
         Queries q = new Queries();
-        // q.connect();
+        q.connect();
 
         fd.welcomeMsg();
         fd.userInteraction(q);
-        // Queries=
-        // q.fetchMoviesForPerson("Ola Halvorsen");
-        // q.fetchTopCompaniesByGenres();
     }
 }
