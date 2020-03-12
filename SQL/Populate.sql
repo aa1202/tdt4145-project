@@ -1,18 +1,18 @@
 USE FilmDB;
 
 # Person
-INSERT INTO Person (Fnr, Navn, Tlf, Fødselsår, Fødselsland)
-VALUES ('1', 'Ola Halvorsen', '97664587', '1998', 'Norge');
+INSERT INTO Person (Navn, Tlf, Fødselsår, Fødselsland)
+VALUES ('Ola Halvorsen', '97664587', '1998', 'Norge');
 
-INSERT INTO Person (Fnr, Navn, Tlf, Fødselsår, Fødselsland)
-VALUES ('2', 'Preben Lohrengren', '67145633', '1996', 'Norge');
+INSERT INTO Person (Navn, Tlf, Fødselsår, Fødselsland)
+VALUES ('Preben Lohrengren', '67145633', '1996', 'Norge');
 
-INSERT INTO Person (Fnr, Navn, Tlf, Fødselsår, Fødselsland)
-VALUES ('3', 'Ahre-Ketil', '42013370', '1988', 'Norge');
+INSERT INTO Person (Navn, Tlf, Fødselsår, Fødselsland)
+VALUES ('Ahre-Ketil', '42013370', '1988', 'Norge');
 
 # Musikk
-INSERT INTO Musikk (MusikkID, Tittel)
-VALUES ('1', 'Haugenstua - Herman Flesvig');
+INSERT INTO Musikk (Tittel)
+VALUES ('Haugenstua - Herman Flesvig');
 
 INSERT INTO Musikk (MusikkID, Tittel)
 VALUES ('2', 'Tokyo Drift - Teriyaki Boyz');
@@ -21,50 +21,50 @@ INSERT INTO Musikk (MusikkID, Tittel)
 VALUES ('3', 'F**kin' 'Problems - A$AP Rocky');
 
 # Sjanger
-INSERT INTO Sjanger (SjangerID, Sjanger)
-VALUES ('1', 'Action');
+INSERT INTO Sjanger (Sjanger)
+VALUES ('Action');
 
-INSERT INTO Sjanger (SjangerID, Sjanger)
-VALUES ('2', 'Comedy');
+INSERT INTO Sjanger (Sjanger)
+VALUES ('Comedy');
 
-INSERT INTO Sjanger (SjangerID, Sjanger)
-VALUES ('3', 'Romantic');
+INSERT INTO Sjanger (Sjanger)
+VALUES ('Romantic');
 
-INSERT INTO Sjanger (SjangerID, Sjanger)
-VALUES ('4', 'Drama');
+INSERT INTO Sjanger (Sjanger)
+VALUES ('Drama');
 
 # Selskap
-INSERT INTO Selskap (SelskapID, Navn, URL, Land, Addresse)
-VALUES ('1', 'Det Norske Selskab', 'https://www.norskeselskab.no/', 'Norway', 'Norway Avenue 1');
+INSERT INTO Selskap (Navn, URL, Land, Addresse)
+VALUES ('Det Norske Selskab', 'https://www.norskeselskab.no/', 'Norway', 'Norway Avenue 1');
 
-INSERT INTO Selskap (SelskapID, Navn, URL, Land, Addresse)
-VALUES ('2', 'Knowit', 'https://www.knowit.no/', 'Norway', 'Lakkegata 53');
+INSERT INTO Selskap (Navn, URL, Land, Addresse)
+VALUES ('Knowit', 'https://www.knowit.no/', 'Norway', 'Lakkegata 53');
 
-INSERT INTO Selskap (SelskapID, Navn, URL, Land, Addresse)
-VALUES ('3', 'Bouvet', 'https://www.bouvet.no/', 'Norway', 'Sørkedalsveien 8');
+INSERT INTO Selskap (Navn, URL, Land, Addresse)
+VALUES ('Bouvet', 'https://www.bouvet.no/', 'Norway', 'Sørkedalsveien 8');
 
 # Bruker
-INSERT INTO Bruker (BrukerID, Brukernavn)
-VALUES ('1', 'Lekesoldat');
+INSERT INTO Bruker (Brukernavn)
+VALUES ('Lekesoldat');
 
-INSERT INTO Bruker (BrukerID, Brukernavn)
-VALUES ('2', 'CarlOfHoly');
+INSERT INTO Bruker (Brukernavn)
+VALUES ('CarlOfHoly');
 
-INSERT INTO Bruker (BrukerID, Brukernavn)
-VALUES ('3', 'DeepDap');
+INSERT INTO Bruker (Brukernavn)
+VALUES ('DeepDap');
 
-INSERT INTO Bruker (BrukerID, Brukernavn)
-VALUES ('4', 'aa1202');
+INSERT INTO Bruker (Brukernavn)
+VALUES ('aa1202');
 
 # Serie
-INSERT INTO Serie (SerieID, Tittel)
-VALUES ('1', 'Sex Education');
+INSERT INTO Serie (Tittel)
+VALUES ('Sex Education');
 
 INSERT INTO Serie (SerieID, Tittel)
-VALUES ('2', 'Prison Break');
+VALUES ('Prison Break');
 
-INSERT INTO Serie (SerieID, Tittel)
-VALUES ('3', 'Covid-19');
+INSERT INTO Serie (Tittel)
+VALUES ('Covid-19');
 
 # Sesong
 INSERT INTO Sesong (Nummer, SerieID)
@@ -77,30 +77,30 @@ INSERT INTO Sesong (Nummer, SerieID)
 VALUES ('3', '3');
 
 # Media
-INSERT INTO Media (MediaID, Tittel, Utgivelsesår, Lanseringsdato, Beskrivelse, Lengde, SelskapID)
-VALUES ('1', 'The Good the Bad and the Zugly', '1998', '1997-01-01', 'Kinda long', '3', '1');
+INSERT INTO Media (Tittel, Utgivelsesår, Lanseringsdato, Beskrivelse, Lengde, SelskapID)
+VALUES ('The Good the Bad and the Zugly', '1998', '1997-01-01', 'Kinda long', '3', '1');
 
-INSERT INTO Media (MediaID, Tittel, Utgivelsesår, Lanseringsdato, Beskrivelse, Lengde, SelskapID)
-VALUES ('2', 'Behemoth', '2000', '1990-05-03', 'The movie about the band', '2', '2');
+INSERT INTO Media (Tittel, Utgivelsesår, Lanseringsdato, Beskrivelse, Lengde, SelskapID)
+VALUES ('Behemoth', '2000', '1990-05-03', 'The movie about the band', '2', '2');
 
-INSERT INTO Media (MediaID, Tittel, Utgivelsesår, Lanseringsdato, Beskrivelse, Lengde, SelskapID)
-VALUES ('3', 'Transformers', '2010', '2009-06-11', 'The one about robots', '2', '3');
+INSERT INTO Media (Tittel, Utgivelsesår, Lanseringsdato, Beskrivelse, Lengde, SelskapID)
+VALUES ('Transformers', '2010', '2009-06-11', 'The one about robots', '2', '3');
 
 # Anmeldelse
-INSERT INTO Anmeldelse (AnmeldelseID, Tekst, Rating, BrukerID, MediaID)
-VALUES ('1', 'Good movie, I like it.', '10', '1', '1');
+INSERT INTO Anmeldelse (Tekst, Rating, BrukerID, MediaID)
+VALUES ('Good movie, I like it.', '10', '1', '1');
 
-INSERT INTO Anmeldelse (AnmeldelseID, Tekst, Rating, BrukerID, MediaID)
-VALUES ('2', 'Meeh, seen better', '7', '2', '2');
+INSERT INTO Anmeldelse (Tekst, Rating, BrukerID, MediaID)
+VALUES ('Meeh, seen better', '7', '2', '2');
 
-INSERT INTO Anmeldelse (AnmeldelseID, Tekst, Rating, BrukerID, MediaID)
-VALUES ('3', 'This series made me depressed...', '2', '3', '3');
+INSERT INTO Anmeldelse (Tekst, Rating, BrukerID, MediaID)
+VALUES ('This series made me depressed...', '2', '3', '3');
 
-INSERT INTO Anmeldelse (AnmeldelseID, Tekst, Rating, BrukerID, MediaID)
-VALUES ('4', 'Oh well, ok', '3', '1', '2');
+INSERT INTO Anmeldelse (Tekst, Rating, BrukerID, MediaID)
+VALUES ('Oh well, ok', '3', '1', '2');
 
-INSERT INTO Anmeldelse (AnmeldelseID, Tekst, Rating, BrukerID, MediaID)
-VALUES ('5', 'Lol very nice yes yes', '5', '1', '3');
+INSERT INTO Anmeldelse (Tekst, Rating, BrukerID, MediaID)
+VALUES ('Lol very nice yes yes', '5', '1', '3');
 
 # SkuespillerI
 INSERT INTO SkuespillerI (Fnr, MediaID, Rolle)
@@ -127,6 +127,7 @@ VALUES ('2', '2');
 
 INSERT INTO SkrevetAv (Fnr, MediaID)
 VALUES ('3', '3');
+
 
 # RegiAv
 INSERT INTO RegiAv (Fnr, MediaID)

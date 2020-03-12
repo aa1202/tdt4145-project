@@ -115,17 +115,16 @@ public class Queries extends DBConn {
             for (List<String> e : entry.getValue()) {
                 String name = e.get(0);
                 Integer total = Integer.parseInt(e.get(1));
-                System.out.println(String.format("- %s: %d %s", name, total, total > 1 ? "filmer" : "film" ));
+                System.out.println(String.format("- %s: %d %s", name, total, total > 1 ? "films" : "film" ));
             }
             System.out.println();
         }
     }
 
     // 4) Sette inn en ny film med regissør, skuespillere og det som hører med.
-    public void insertNewMovie () {
+    public void insertNewMovie (List<List<String>> data) {
         System.out.println("\u001B[34mInserting new movie.\u001B[0m");
 
-        /* INSERT CODE HERE */
     }
 
     // 5) Sette inn en ny anmeldelse av en episode av en serie.

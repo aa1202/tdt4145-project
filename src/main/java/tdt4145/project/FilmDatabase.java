@@ -112,7 +112,7 @@ public class FilmDatabase {
     public static void main(String[] args) {
         FilmDatabase fd = new FilmDatabase();
         Queries q = new Queries();
-        //q.connect();
+        q.connect();
 
         // d.welcomeMsg();
         // fd.userInteraction(q);
