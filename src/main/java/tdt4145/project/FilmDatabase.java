@@ -1,8 +1,5 @@
 package tdt4145.project;
 
-import tdt4145.project.Entities.Bruker;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;

@@ -38,3 +38,11 @@ application {
     // Define the main class for the application.
     mainClassName = 'tdt4145.project.FilmDatabase'
 }
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'tdt4145.project.FilmDatabase'
+        )
+    }
+}
