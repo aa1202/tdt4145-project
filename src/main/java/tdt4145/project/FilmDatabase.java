@@ -2,6 +2,8 @@ package tdt4145.project;
 
 import tdt4145.project.Entities.Bruker;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FilmDatabase {
@@ -25,6 +27,7 @@ public class FilmDatabase {
     public void userInteraction(Queries q) {
         boolean condition;
         do {
+            String answer;
             Scanner scanner = new Scanner(System.in);
             Scanner stringScanner = new Scanner(System.in);
             condition = true;
@@ -33,18 +36,66 @@ public class FilmDatabase {
             switch (scanner.nextInt()) {
                 case 0:
                     System.out.println("Skriv inn navnet på skuespiller: ");
-                    String answer = stringScanner.nextLine();
+                    answer = stringScanner.nextLine();
                     System.out.println(" ");
                     q.fetchRolesForPerson(answer);
                     break;
                 case 1:
-                    System.out.println("Valgte 1");
+                    System.out.println("Skriv inn navnet på skuespiller: ");
+                    answer = stringScanner.nextLine();
+                    System.out.println();
+                    q.fetchMoviesForPerson(answer);
                     break;
                 case 2:
-                    System.out.println("Valgte 2");
+                    System.out.println(" ");
+                    q.fetchTopCompaniesByGenres();
                     break;
                 case 3:
-                    System.out.println("Valgte 3");
+                    ArrayList<ArrayList<String>> query = new ArrayList<ArrayList<String>>();
+                    ArrayList<String> movieName = new ArrayList<>();
+                    ArrayList<String> directors = new ArrayList<>();
+                    ArrayList<String> writers = new ArrayList<>();
+                    ArrayList<String> actors = new ArrayList<>();
+                    // [["filmnavn"], ["reg1", "reg2"], ["man1", "man2"], ["sku1", "sku2"]];
+
+                    System.out.println("Navn på film: ");
+
+                    answer = stringScanner.nextLine();
+                    movieName.add(answer);
+                    query.add(movieName);
+
+                    System.out.println("Navn på regissør: ");
+                    while (stringScanner.hasNext()) {
+                        answer = stringScanner.nextLine();
+                        if (answer.equals("q")) {
+                            break;
+                        } else {
+                            directors.add(answer);
+                        }
+                    }
+                    query.add(directors);
+
+                    System.out.println("Navn på manusforfatter: ");
+                    while (stringScanner.hasNext()) {
+                        answer = stringScanner.nextLine();
+                        if (answer.equals("q")) {
+                            break;
+                        }
+                        writers.add(answer);
+                    }
+                    query.add(writers);
+
+                    System.out.println("Navn på skuespiller: ");
+                    while (stringScanner.hasNext()) {
+                        answer = stringScanner.nextLine();
+                        if (answer.equals("q")) {
+                            break;
+                        }
+                        actors.add(answer);
+                    }
+                    query.add(actors);
+
+                    System.out.println(query);
                     break;
                 case 4:
                     System.out.println("Valgte 4");
@@ -62,12 +113,10 @@ public class FilmDatabase {
     public static void main(String[] args) {
         FilmDatabase fd = new FilmDatabase();
         Queries q = new Queries();
-        q.connect();
+        //q.connect();
 
         fd.welcomeMsg();
         fd.userInteraction(q);
         // Queries
-        // q.fetchMoviesForPerson("Ola Halvorsen");
-        // q.fetchTopCompaniesByGenres();
     }
 }
