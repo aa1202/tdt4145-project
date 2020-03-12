@@ -13,12 +13,13 @@ public class FilmDatabase {
     }
 
     public void printInfo() {
-        System.out.println("0: Finn navnet på alle rollene til skuespiller.");
-        System.out.println("1: Finn filmene til angitt skuespiller.");
-        System.out.println("2: Finne hvilke filmselskaper som lager flest filmer innen hver sjanger.");
-        System.out.println("3: Sette inn ny film med regissør, manusforfatter(e), skuespiller(e) etc.");
-        System.out.println("4: Skrive inn en ny anmeldelse.");
-        System.out.println("5: Printer info på nytt.");
+        System.out.println("1: Finn navnet på alle rollene til skuespiller.");
+        System.out.println("2: Finn filmene til angitt skuespiller.");
+        System.out.println("3: Finne hvilke filmselskaper som lager flest filmer innen hver sjanger.");
+        System.out.println("4: Sette inn ny film med regissør, manusforfatter(e), skuespiller(e) etc.");
+        System.out.println("5: Skrive inn en ny anmeldelse.");
+        System.out.println("6: Printer info på nytt.");
+        System.out.println("Alle andre tall quitter.");
         System.out.println(" ");
     }
 
@@ -29,28 +30,28 @@ public class FilmDatabase {
             Scanner scanner = new Scanner(System.in);
             Scanner stringScanner = new Scanner(System.in);
             condition = true;
-            System.out.println("Velg et tall fra 0-5: ");
+            System.out.println("Velg et tall fra 1-6: ");
             System.out.println("----------------------------");
             switch (scanner.nextInt()) {
-                case 0:
+                case 1:
                     System.out.println("Skriv inn navnet på skuespiller: ");
                     answer = stringScanner.nextLine();
 
                     System.out.println();
                     q.fetchRolesForPerson(answer);
                     break;
-                case 1:
+                case 2:
                     System.out.println("Skriv inn navnet på skuespiller: ");
                     answer = stringScanner.nextLine();
 
                     System.out.println();
                     q.fetchMoviesForPerson(answer);
                     break;
-                case 2:
+                case 3:
                     System.out.println(" ");
                     q.fetchTopCompaniesByGenres();
                     break;
-                case 3:
+                case 4:
                     List<String[]> query = new ArrayList<>();
 
                     System.out.println("Navn på film, utgivelsesår, lanseringsdato, beskrivelse, lengde, selskap: ");
@@ -98,7 +99,7 @@ public class FilmDatabase {
                     q.insertNewMovie(query);
                     break;
 
-                case 4:
+                case 5:
                     ArrayList<String> items = new ArrayList<>();
                     System.out.println("Oppgi brukernavn:");
                     items.add(stringScanner.nextLine());
@@ -145,10 +146,11 @@ public class FilmDatabase {
                     }
 
                     break;
-                case 5:
+                case 6:
                     printInfo();
                     break;
                 default:
+                    System.out.println("Exiting");
                     condition = false;
                     break;
             }
