@@ -84,7 +84,10 @@ Usecase 5: *insertNewMediaReview(..)*, *insertNewSeriesReview(..)* og *insertNew
 
 Når man kjører applikasjonen blir man presentert med 6 valg. Valg 1-5 dekker usecasene ovenfor, mens valg 6 printer informasjonen på nytt. For å avslutte applikasjonen skriver man inn hvilket som helst annet tall. *NB* Hvis man skriver inne noe annet enn et tall her vil man få en error-kode og applikasjonen avsluttes på den måten.
 
-De fleste av valgene er relativt intuitive og man kan følge instruksjonene på skjermen. Valg 4 er noe annerledes fra de andre. For hver forespørsel skal man skrive hele linjen med hvert felt separert med komma. Eksempelvis for film: Forrest Gump, 1990, 1990-01-01, Movie about Forrest Gump, 210, KnowIT.
+De fleste av valgene er relativt intuitive og man kan følge instruksjonene på skjermen. Valg 4 er noe annerledes fra de andre. For hver forespørsel skal man skrive hele linjen med hvert felt separert med komma. Eksempelvis for film: 
+```
+Forrest Gump, 1990, 1990-01-01, Movie about Forrest Gump, 210, KnowIT
+```
 
 
 ## Kommentar til leveranse
