@@ -195,25 +195,81 @@ public class Queries extends DBConn {
     // 5) Sette inn en ny anmeldelse av en episode av en serie.
     public void insertNewMediaReview (List<String> information) {
         System.out.println("\u001B[34mInserting new media review.\u001B[0m");
+        String user = information.get(0);
+        String title = information.get(1);
+        Integer rating = Integer.parseInt(information.get(2));
+        String review = information.get(3);
 
-        String title = information.get(0);
-        String review = information.get(1);
+        try {
+            PreparedStatement stmt = connection.prepareStatement("INSERT INTO Anmeldelse (Tekst, Rating, BrukerID, MediaID)\n" +
+                    "VALUES (?, ?, (SELECT BrukerID FROM Bruker WHERE brukernavn=?), (SELECT MediaID FROM Media WHERE tittel=?))");
 
-        /* INSERT CODE HERE*/
+            stmt.setString(1, review);
+            stmt.setInt(2, rating);
+            stmt.setString(3, user);
+            stmt.setString(4, title);
+
+            stmt.execute();
+            System.out.println(String.format("%s reviewed by %s.", title, user));
+
+
+        } catch (SQLException e) {
+            System.out.println(String.format("Error occured during media review insert: %s", e.getMessage()));
+        }
     }
+
     public void insertNewSeriesReview (List<String> information) {
         System.out.println("\u001B[34mInserting new series review.\u001B[0m");
 
-        String series = information.get(0);
-        String review = information.get(1);
-        /* INSERT CODE HERE*/
+        String user = information.get(0);
+        String series = information.get(1);
+        Integer rating = Integer.parseInt(information.get(2));
+        String review = information.get(3);
+
+        try {
+            PreparedStatement stmt = connection.prepareStatement("INSERT INTO Anmeldelse (Tekst, Rating, BrukerID, SerieID)\n" +
+                    "VALUES (?, ?, (SELECT BrukerID FROM Bruker WHERE brukernavn=?), (SELECT SerieID FROM Serie WHERE tittel=?))");
+
+            stmt.setString(1, review);
+            stmt.setInt(2, rating);
+            stmt.setString(3, user);
+            stmt.setString(4, series);
+
+            stmt.execute();
+            System.out.println(String.format("%s reviewed by %s.", series, user));
+
+
+        } catch (SQLException e) {
+            System.out.println(String.format("Error occured during series review insert: %s", e.getMessage()));
+        }
     }
+
     public void insertNewSeasonReview (List<String> information) {
         System.out.println("\u001B[34mInserting new season review.\u001B[0m");
 
-        String series = information.get(0);
-        String season = information.get(1);
-        String review = information.get(2);
-        /* INSERT CODE HERE*/
+
+        String user = information.get(0);
+        String series = information.get(1);
+        Integer number = Integer.parseInt(information.get(2));
+        Integer rating = Integer.parseInt(information.get(3));
+        String review = information.get(4);
+
+        try {
+            PreparedStatement stmt = connection.prepareStatement("INSERT INTO Anmeldelse (Tekst, Rating, BrukerID, Nummer, SerieID)\n" +
+                    "VALUES (?, ?, (SELECT BrukerID FROM Bruker WHERE brukernavn=?), ?, (SELECT SerieID FROM Serie WHERE tittel=?))");
+
+            stmt.setString(1, review);
+            stmt.setInt(2, rating);
+            stmt.setString(3, user);
+            stmt.setInt(4, number);
+            stmt.setString(5, series);
+
+            stmt.execute();
+            System.out.println(String.format("Season %d of %s reviewed by %s.", number, series, user));
+
+
+        } catch (SQLException e) {
+            System.out.println(String.format("Error occured during season review insert: %s", e.getMessage()));
+        }
     }
 }

@@ -104,32 +104,51 @@ public class FilmDatabase {
                     q.insertNewMovie(query);
                     break;
                 case 4:
+                    ArrayList<String> items = new ArrayList<>();
+                    System.out.println("Oppgi brukernavn:");
+                    items.add(stringScanner.nextLine());
+
                     System.out.println("Hvilken media-type vil du anmelde? (Film, serie, sessong, episode)");
                     answer = stringScanner.nextLine();
-                    ArrayList<String> items = new ArrayList<>();
+                    String type = answer.toLowerCase();
 
-                    if (answer.toLowerCase().equals("film") || answer.toLowerCase().equals("episode")) {
+                    if (type.equals("film") || type.equals("episode")) {
                         System.out.println("Hva er navnet?");
                         items.add(stringScanner.nextLine());
-                        System.out.println("Anmeldelse: ");
-                        items.add(stringScanner.nextLine());
-                    } else if (answer.toLowerCase().equals("sessong")) {
+
+                    } else if (type.equals("sesong")) {
                         System.out.println("Hvilken serie?");
                         items.add(stringScanner.nextLine());
-                        System.out.println("Hvilken sessong?");
+
+                        System.out.println("Hvilken sesong?");
                         items.add(stringScanner.nextLine());
-                        System.out.println("Anmeldelse: ");
-                        items.add(stringScanner.nextLine());
-                    } else if (answer.toLowerCase().equals("serie")) {
+
+                    } else if (type.equals("serie")) {
                         System.out.println("Hvilken serie vil du anmelde?");
                         items.add(stringScanner.nextLine());
-                        System.out.println("Anmeldelse: ");
-                        items.add(stringScanner.nextLine());
+
                     } else {
                         System.out.println("Ugyldig valg");
+                        break;
                     }
-                    System.out.println(items);
-                    System.out.println(" ");
+
+                    System.out.println("Rating");
+                    items.add(stringScanner.nextLine());
+
+                    System.out.println("Tekst: ");
+                    items.add(stringScanner.nextLine());
+
+
+                    if (type.equals("film") || type.equals("episode")) {
+                        q.insertNewMediaReview(items);
+
+                    } else if (type.equals("sesong")) {
+                        q.insertNewSeasonReview(items);
+
+                    } else if (type.equals("serie")) {
+                        q.insertNewSeriesReview(items);
+                    }
+
                     break;
                 case 5:
                     printInfo();
