@@ -74,7 +74,7 @@ public class Queries extends DBConn {
     // 3) Finne hvilke filmselskap som lager flest filmer innen hver sjanger ("Comedy", Action", "Romance"++)
     public void fetchTopCompaniesByGenres () {
         System.out.println("\u001B[34mFetching top companies for each genre.\u001B[0m");
-        Map<String, List<String>> results = new HashMap<>();
+        Map<String, List<List<String>>> results = new HashMap<>();
 
         try {
             PreparedStatement stmt = connection.prepareStatement("SELECT url, Sjanger, count(H.SjangerID) AS Total FROM Selskap S " +
@@ -93,17 +93,23 @@ public class Queries extends DBConn {
                 ResultSet res = stmt.getResultSet();
 
                 while(res.next()) {
+                    if (!results.containsKey(res.getString(2))) {
+                        results.put(res.getString(2), new ArrayList<>());
+                    }
                     List<String> values = new ArrayList<>();
+
                     values.add(res.getString(1));
                     values.add(res.getString(3));
-                    results.put(res.getString(2), values);
+                    results.get(res.getString(2)).add(values);
                 }
             }
 
-            System.out.println(results);
-
         } catch (SQLException e) {
             System.out.println(String.format("Error occured during fetchTopCompaniesByGenres: %s", e.getMessage()));
+        }
+
+        for (Map.Entry<String, List<List<String>>> entry : results.entrySet()) {
+            System.out.println(entry);
         }
 
     }

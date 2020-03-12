@@ -34,6 +34,7 @@ public class FilmDatabase {
                 case 0:
                     System.out.println("Skriv inn navnet på skuespiller: ");
                     String answer = stringScanner.nextLine();
+                    System.out.println(" ");
                     q.fetchRolesForPerson(answer);
                     break;
                 case 1:
@@ -64,7 +65,6 @@ public class FilmDatabase {
         q.connect();
 
         fd.welcomeMsg();
-        fd.printInfo();
         fd.userInteraction(q);
         // Queries
         // q.fetchMoviesForPerson("Ola Halvorsen");
