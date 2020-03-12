@@ -10,7 +10,7 @@ SELECT M.* FROM Person P
 		ON S.MediaID = M.MediaID 
 	WHERE P.navn="Ola Halvorsen";
 
-    
+# c
 SELECT S.Navn, Sjanger, count(H.SjangerID) AS Total FROM Selskap S
 	INNER JOIN EierAvMedia E 
 		ON E.SelskapID = S.SelskapID
@@ -22,4 +22,4 @@ SELECT S.Navn, Sjanger, count(H.SjangerID) AS Total FROM Selskap S
 		ON SJ.SjangerID = H.SjangerID
 	GROUP BY S.navn, Sjanger
     ORDER BY Sjanger, Total DESC;
-    
+

@@ -4,6 +4,7 @@ import tdt4145.project.Entities.Bruker;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class FilmDatabase {
@@ -51,11 +52,11 @@ public class FilmDatabase {
                     q.fetchTopCompaniesByGenres();
                     break;
                 case 3:
-                    ArrayList<ArrayList<String>> query = new ArrayList<ArrayList<String>>();
-                    ArrayList<String> movie= new ArrayList<>();
-                    ArrayList<String> directors = new ArrayList<>();
-                    ArrayList<String> writers = new ArrayList<>();
-                    ArrayList<String> actors = new ArrayList<>();
+                    List<List<String>> query = new ArrayList<>();
+                    List<String> movie= new ArrayList<>();
+                    List<String> directors = new ArrayList<>();
+                    List<String> writers = new ArrayList<>();
+                    List<String> actors = new ArrayList<>();
 
                     System.out.println("Navn på film, utgivelsesår, lanseringsdato, beskrivelse, lengde, selskap: ");
 
@@ -100,7 +101,7 @@ public class FilmDatabase {
                     }
                     query.add(actors);
 
-                    System.out.println(query);
+                    q.insertNewMovie(query);
                     break;
                 case 4:
                     System.out.println("Hvilken media-type vil du anmelde? (Film, serie, sessong, episode)");
@@ -143,7 +144,7 @@ public class FilmDatabase {
     public static void main(String[] args) {
         FilmDatabase fd = new FilmDatabase();
         Queries q = new Queries();
-        //q.connect();
+        q.connect();
 
         fd.welcomeMsg();
         fd.userInteraction(q);

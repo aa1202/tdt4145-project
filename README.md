@@ -1,6 +1,5 @@
 # Filmdatabase
 
-
 ### SQL
 Sørg for at du har [MySQL Server](https://dev.mysql.com/downloads/mysql/). Installer og sett passordet til "password".
 

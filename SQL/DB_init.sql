@@ -2,7 +2,7 @@ CREATE DATABASE FilmDB;
 USE FilmDB;
 
 CREATE TABLE Person (
-	Fnr INT NOT NULL,
+	Fnr INT NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (Fnr),
     Navn VARCHAR(100),
     Tlf INT(8),
@@ -11,19 +11,19 @@ CREATE TABLE Person (
 );
 
 CREATE TABLE Musikk (
-	MusikkID INT NOT NULL,
+	MusikkID INT NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (MusikkID),
     Tittel VARCHAR(100)
 );
 
 CREATE TABLE Sjanger (
-	SjangerID INT NOT NULL,
+	SjangerID INT NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (SjangerID),
     Sjanger VARCHAR(100)
 );
 
 CREATE TABLE Selskap (
-	SelskapID INT NOT NULL,
+	SelskapID INT NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (SelskapID),
 
     Navn VARCHAR(100),
@@ -33,13 +33,13 @@ CREATE TABLE Selskap (
 );
 
 CREATE TABLE Bruker (
-	BrukerID INT NOT NULL,
+	BrukerID INT NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (BrukerID),
     Brukernavn VARCHAR(100)
 );
 
 CREATE TABLE Serie (
-	SerieID INT NOT NULL,
+	SerieID INT NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (SerieID),
     Tittel VARCHAR(100)
 );
@@ -55,7 +55,7 @@ CREATE TABLE Sesong (
 );
 
 CREATE TABLE Media (
-	MediaID INT NOT NULL,
+	MediaID INT NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (MediaID),
     Tittel VARCHAR(100),
     Utgivelsesår YEAR,
@@ -70,7 +70,7 @@ CREATE TABLE Media (
 );
 
 CREATE TABLE Anmeldelse (
-	AnmeldelseID INT NOT NULL,
+	AnmeldelseID INT NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (AnmeldelseID),
     Tekst VARCHAR(255),
     Rating INT,
