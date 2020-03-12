@@ -103,7 +103,7 @@ public class FilmDatabase {
                     System.out.println("Oppgi brukernavn:");
                     items.add(stringScanner.nextLine());
 
-                    System.out.println("Hvilken media-type vil du anmelde? (Film, serie, sessong, episode)");
+                    System.out.println("Hvilken media-type vil du anmelde? (Film, serie, sesong, episode)");
                     answer = stringScanner.nextLine();
                     String type = answer.toLowerCase();
 
