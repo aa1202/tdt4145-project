@@ -129,9 +129,27 @@ public class Queries extends DBConn {
     }
 
     // 5) Sette inn en ny anmeldelse av en episode av en serie.
-    public void insertNewReview () {
-        System.out.println("\u001B[34mInserting new review.\u001B[0m");
+    public void insertNewMediaReview (List<String> information) {
+        System.out.println("\u001B[34mInserting new media review.\u001B[0m");
 
+        String title = information.get(0);
+        String review = information.get(1);
+
+        /* INSERT CODE HERE*/
+    }
+    public void insertNewSeriesReview (List<String> information) {
+        System.out.println("\u001B[34mInserting new series review.\u001B[0m");
+
+        String series = information.get(0);
+        String review = information.get(1);
+        /* INSERT CODE HERE*/
+    }
+    public void insertNewSeasonReview (List<String> information) {
+        System.out.println("\u001B[34mInserting new season review.\u001B[0m");
+
+        String series = information.get(0);
+        String season = information.get(1);
+        String review = information.get(2);
         /* INSERT CODE HERE*/
     }
 }

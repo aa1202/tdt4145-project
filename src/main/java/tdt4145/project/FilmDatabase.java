@@ -103,17 +103,32 @@ public class FilmDatabase {
                     System.out.println(query);
                     break;
                 case 4:
-                    System.out.println("Hvilken media-type vil du anmelde?");
+                    System.out.println("Hvilken media-type vil du anmelde? (Film, serie, sessong, episode)");
                     answer = stringScanner.nextLine();
-                    if (answer.equals("Film") || answer.equals("Episode")) {
-                        System.out.println("film");
-                    } else if (answer.equals("Sessong")) {
-                        System.out.println("sessong");
-                    } else if (answer.equals("Serie")) {
-                        System.out.println("serie");
+                    ArrayList<String> items = new ArrayList<>();
+
+                    if (answer.toLowerCase().equals("film") || answer.toLowerCase().equals("episode")) {
+                        System.out.println("Hva er navnet?");
+                        items.add(stringScanner.nextLine());
+                        System.out.println("Anmeldelse: ");
+                        items.add(stringScanner.nextLine());
+                    } else if (answer.toLowerCase().equals("sessong")) {
+                        System.out.println("Hvilken serie?");
+                        items.add(stringScanner.nextLine());
+                        System.out.println("Hvilken sessong?");
+                        items.add(stringScanner.nextLine());
+                        System.out.println("Anmeldelse: ");
+                        items.add(stringScanner.nextLine());
+                    } else if (answer.toLowerCase().equals("serie")) {
+                        System.out.println("Hvilken serie vil du anmelde?");
+                        items.add(stringScanner.nextLine());
+                        System.out.println("Anmeldelse: ");
+                        items.add(stringScanner.nextLine());
                     } else {
-                        System.out.println("u suck");
+                        System.out.println("Ugyldig valg");
                     }
+                    System.out.println(items);
+                    System.out.println(" ");
                     break;
                 case 5:
                     printInfo();
