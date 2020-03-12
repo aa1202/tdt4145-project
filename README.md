@@ -10,42 +10,49 @@ I `SQL-mappen` finnes det `to` script som må kjøres i [MySQL Workbench](https:
 ### Possible relevant pre-made data:
 
 **Person:**  
+
 | Navn              | Tlf      | Fødselsår | Fødselsland |
-|--:-:--------------|--:-:-----|--:-:------|--:-:--------|
+| :-----------------: | :--------: | :---------: | :-----------: |
 | Ola Halvorsen     | 97664587 | 1998      | Norge       |
 | Preben Lohrengren | 67145633 | 1996      | Norge       |
 | Ahre-Ketil        | 42013370 | 1988      | Norge       |
 
 
+
 **Bruker:**  
+
 | Brukernavn |
-|-:-:--------|
+| :----------: |
 | Lekesoldat |
 | CarlOfHoly |
 | DeepDap    |
 | aa1202     |
 
 **Media:**  
+
 | Tittel                         | Utgivelsesår | Lanseringsdato | Beskrivelse              | Lengde | SelskapID |
-|--:-:---------------------------|--:-:---------|--:-:-----------|--:-:---------------------|--:-:---|--:-:------|
+|:------------------------------:|:-----------:|:-----------:|:----------------------:|:-----:|:-----:|
 | The Good the Bad and the Zugly | 1998         | 1997-01-01     | Kinda long               | 3      | 1         |
 | Behemoth                       | 2000         | 1990-05-03     | The movie about the band | 2      | 2         |
 | Transformers                   | 2010         | 2009-06-11     | The one about the robots | 2      | 3         |
 
 **Serie:**  
+
 | Tittel        |
-|-:-:-----------|
+|:-------------:|
 | Sex Education |
 | Prison Break  |
 | Covid-19      |
 
 **Selskap:**  
+
 | Navn               | URL                           | Land   | Addresse         |
-|--:-:---------------|--:-:--------------------------|--:-:---|--:-:-------------|
+|:---------------:|:---------------------------:|:----:|:-------------:|
 | Det Norske Selskab | https://www.norskeselskab.no/ | Norway | Norway Avenue    |
 | Knowit             | https://www.knowit.no/        | Norway | Lakkegata 53     |
 | Bouvet             | https://www.bouvet.no/        | Norway | Sørkedalsveien 8 |
 
+----
 
 ## Java
 
