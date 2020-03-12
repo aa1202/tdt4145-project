@@ -52,57 +52,46 @@ public class FilmDatabase {
                     q.fetchTopCompaniesByGenres();
                     break;
                 case 3:
-                    List<List<String>> query = new ArrayList<>();
-                    List<String> movie= new ArrayList<>();
-                    List<String> directors = new ArrayList<>();
-                    List<String> writers = new ArrayList<>();
-                    List<String> actors = new ArrayList<>();
+                    List<String[]> query = new ArrayList<>();
 
                     System.out.println("Navn på film, utgivelsesår, lanseringsdato, beskrivelse, lengde, selskap: ");
-
-                    while (stringScanner.hasNext()) {
-                        answer = stringScanner.nextLine();
-                        if (answer.equals("q")) {
-                            break;
-                        } else {
-                            movie.add(answer);
-                        }
+                    String[] movieInfo = stringScanner.nextLine().split(",");
+                    if(movieInfo.length != 6) {
+                        System.out.println("Oppgi info slik: Navn på film, utgivelsesår, lanseringsdato, beskrivelse, lengde, selskap");
+                        break;
                     }
-                    query.add(movie);
+                    query.add(movieInfo);
+                    System.out.println();
 
-                    System.out.println("Navn på regissør: ");
-                    while (stringScanner.hasNext()) {
-                        answer = stringScanner.nextLine();
-                        if (answer.equals("q")) {
-                            break;
-                        } else {
-                            directors.add(answer);
-                        }
+                    System.out.println("Navn på regissører (skilt med komma): ");
+                    String[] directors = stringScanner.nextLine().split(",");
+                    if (directors.length <= 0) {
+                        System.out.println("Oppi minst en regissør.");
+                        break;
                     }
                     query.add(directors);
+                    System.out.println();
 
-                    System.out.println("Navn på manusforfatter: ");
-                    while (stringScanner.hasNext()) {
-                        answer = stringScanner.nextLine();
-                        if (answer.equals("q")) {
-                            break;
-                        }
-                        writers.add(answer);
+                    System.out.println("Navn på manusforfatter(e): ");
+                    String[] writers = stringScanner.nextLine().split(",");
+                    if (writers.length <= 0) {
+                        System.out.println("Oppi minst en manusforfatter.");
+                        break;
                     }
                     query.add(writers);
+                    System.out.println();
 
-                    System.out.println("Navn på skuespiller: ");
-                    while (stringScanner.hasNext()) {
-                        answer = stringScanner.nextLine();
-                        if (answer.equals("q")) {
-                            break;
-                        }
-                        actors.add(answer);
+                    System.out.println("Navn på skuespiller og rolle");
+                    System.out.println("Eksempel: Tom Hanks, Forrest Gump, Jim Carrey, Ace Ventura");
+                    String[] actors = stringScanner.nextLine().split(",");
+                    if (actors.length <= 1) {
+                        System.out.println("Oppgi minst en skuespiller og rollen");
+                        break;
                     }
                     query.add(actors);
-
-                    q.insertNewMovie(query);
+                    System.out.println();
                     break;
+
                 case 4:
                     System.out.println("Hvilken media-type vil du anmelde? (Film, serie, sessong, episode)");
                     answer = stringScanner.nextLine();
@@ -144,7 +133,7 @@ public class FilmDatabase {
     public static void main(String[] args) {
         FilmDatabase fd = new FilmDatabase();
         Queries q = new Queries();
-        q.connect();
+        // q.connect();
 
         fd.welcomeMsg();
         fd.userInteraction(q);
