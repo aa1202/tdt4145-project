@@ -77,7 +77,7 @@ public class Queries extends DBConn {
         Map<String, List<List<String>>> results = new HashMap<>();
 
         try {
-            PreparedStatement stmt = connection.prepareStatement("SELECT url, Sjanger, count(H.SjangerID) AS Total FROM Selskap S " +
+            PreparedStatement stmt = connection.prepareStatement("SELECT S.navn, Sjanger, count(H.SjangerID) AS Total FROM Selskap S " +
                     "INNER JOIN EierAvMedia E " +
                     "ON E.SelskapID = S.SelskapID " +
                     "INNER JOIN Media M " +
@@ -86,7 +86,7 @@ public class Queries extends DBConn {
                     "ON H.MediaID = M.MediaID " +
                     "INNER JOIN Sjanger SJ " +
                     "ON SJ.SjangerID = H.SjangerID " +
-                    "GROUP BY url, Sjanger " +
+                    "GROUP BY S.navn, Sjanger " +
                     "ORDER BY Sjanger, Total DESC;");
 
             if (stmt.execute()) {
@@ -96,6 +96,7 @@ public class Queries extends DBConn {
                     if (!results.containsKey(res.getString(2))) {
                         results.put(res.getString(2), new ArrayList<>());
                     }
+
                     List<String> values = new ArrayList<>();
 
                     values.add(res.getString(1));
@@ -109,9 +110,15 @@ public class Queries extends DBConn {
         }
 
         for (Map.Entry<String, List<List<String>>> entry : results.entrySet()) {
-            System.out.println(entry);
-        }
+            System.out.println(String.format("\u001B[36m%s:\u001B[0m", entry.getKey()));
 
+            for (List<String> e : entry.getValue()) {
+                String name = e.get(0);
+                Integer total = Integer.parseInt(e.get(1));
+                System.out.println(String.format("- %s: %d %s", name, total, total > 1 ? "filmer" : "film" ));
+            }
+            System.out.println();
+        }
     }
 
     // 4) Sette inn en ny film med regissør, skuespillere og det som hører med.

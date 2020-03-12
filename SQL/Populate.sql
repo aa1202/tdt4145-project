@@ -30,15 +30,18 @@ VALUES ('2', 'Comedy');
 INSERT INTO Sjanger (SjangerID, Sjanger)
 VALUES ('3', 'Romantic');
 
+INSERT INTO Sjanger (SjangerID, Sjanger)
+VALUES ('4', 'Drama');
+
 # Selskap
-INSERT INTO Selskap (SelskapID, URL, Land, Addresse)
-VALUES ('1', 'https://www.norskeselskab.no/', 'Norway', 'Norway Avenue 1');
+INSERT INTO Selskap (SelskapID, Navn, URL, Land, Addresse)
+VALUES ('1', 'Det Norske Selskab', 'https://www.norskeselskab.no/', 'Norway', 'Norway Avenue 1');
 
-INSERT INTO Selskap (SelskapID, URL, Land, Addresse)
-VALUES ('2', 'https://www.knowit.no/', 'Norway', 'Lakkegata 53');
+INSERT INTO Selskap (SelskapID, Navn, URL, Land, Addresse)
+VALUES ('2', 'Knowit', 'https://www.knowit.no/', 'Norway', 'Lakkegata 53');
 
-INSERT INTO Selskap (SelskapID, URL, Land, Addresse)
-VALUES ('3', 'https://www.bouvet.no/', 'Norway', 'Sørkedalsveien 8');
+INSERT INTO Selskap (SelskapID, Navn, URL, Land, Addresse)
+VALUES ('3', 'Bouvet', 'https://www.bouvet.no/', 'Norway', 'Sørkedalsveien 8');
 
 # Bruker
 INSERT INTO Bruker (BrukerID, Brukernavn)
@@ -173,13 +176,19 @@ INSERT INTO HarSjanger (SjangerID, MediaID)
 VALUES ('2', '2');
 
 INSERT INTO HarSjanger (SjangerID, MediaID)
+VALUES ('2', '3');
+
+INSERT INTO HarSjanger (SjangerID, MediaID)
 VALUES ('3', '3');
 
 INSERT INTO HarSjanger (SjangerID, MediaID)
 VALUES ('3', '2');
 
 INSERT INTO HarSjanger (SjangerID, MediaID)
-VALUES ('3', '1');
+VALUES ('1', '2');
+
+INSERT INTO HarSjanger (SjangerID, MediaID)
+VALUES ('4', '3');
 
 
 # EierAvMedia
@@ -187,13 +196,19 @@ INSERT INTO EierAvMedia (SelskapID, MediaID)
 VALUES ('1', '1');
 
 INSERT INTO EierAvMedia (SelskapID, MediaID)
-VALUES ('2', '2');
-
-INSERT INTO EierAvMedia (SelskapID, MediaID)
-VALUES ('3', '3');
-
-INSERT INTO EierAvMedia (SelskapID, MediaID)
 VALUES ('1', '2');
 
 INSERT INTO EierAvMedia (SelskapID, MediaID)
 VALUES ('1', '3');
+
+INSERT INTO EierAvMedia (SelskapID, MediaID)
+VALUES ('2', '1');
+
+INSERT INTO EierAvMedia (SelskapID, MediaID)
+VALUES ('2', '3');
+
+INSERT INTO EierAvMedia (SelskapID, MediaID)
+VALUES ('3', '1');
+
+INSERT INTO EierAvMedia (SelskapID, MediaID)
+VALUES ('3', '2');

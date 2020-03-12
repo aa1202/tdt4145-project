@@ -25,7 +25,8 @@ CREATE TABLE Sjanger (
 CREATE TABLE Selskap (
 	SelskapID INT NOT NULL,
     PRIMARY KEY (SelskapID),
-    
+
+    Navn VARCHAR(100),
     URL VARCHAR(100),
     Land VARCHAR(100),
     Addresse VARCHAR(100)

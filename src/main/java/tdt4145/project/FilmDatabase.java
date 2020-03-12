@@ -56,7 +56,6 @@ public class FilmDatabase {
                     ArrayList<String> directors = new ArrayList<>();
                     ArrayList<String> writers = new ArrayList<>();
                     ArrayList<String> actors = new ArrayList<>();
-                    // [["filmnavn"], ["reg1", "reg2"], ["man1", "man2"], ["sku1", "sku2"]];
 
                     System.out.println("Navn på film: ");
 
@@ -115,8 +114,10 @@ public class FilmDatabase {
         Queries q = new Queries();
         //q.connect();
 
-        fd.welcomeMsg();
-        fd.userInteraction(q);
-        // Queries
+        // d.welcomeMsg();
+        // fd.userInteraction(q);
+        // Queries=
+        // q.fetchMoviesForPerson("Ola Halvorsen");
+        q.fetchTopCompaniesByGenres();
     }
 }
