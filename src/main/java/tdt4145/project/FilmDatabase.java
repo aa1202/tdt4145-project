@@ -22,16 +22,19 @@ public class FilmDatabase {
         System.out.println(" ");
     }
 
-    public void userInteraction() {
-        boolean testing;
+    public void userInteraction(Queries q) {
+        boolean condition;
         do {
             Scanner scanner = new Scanner(System.in);
-            testing = true;
+            Scanner stringScanner = new Scanner(System.in);
+            condition = true;
             System.out.println("Velg et tall fra 0-5: ");
             System.out.println("----------------------------");
             switch (scanner.nextInt()) {
                 case 0:
-                    System.out.println("Valgte 0");
+                    System.out.println("Skriv inn navnet på skuespiller: ");
+                    String answer = stringScanner.nextLine();
+                    q.fetchRolesForPerson(answer);
                     break;
                 case 1:
                     System.out.println("Valgte 1");
@@ -49,19 +52,22 @@ public class FilmDatabase {
                     printInfo();
                     break;
                 default:
-                    testing = false;
+                    condition = false;
                     break;
             }
         }
-        while (testing);
+        while (condition);
     }
     public static void main(String[] args) {
+        FilmDatabase fd = new FilmDatabase();
         Queries q = new Queries();
         q.connect();
 
+        fd.welcomeMsg();
+        fd.printInfo();
+        fd.userInteraction(q);
         // Queries
-        // q.fetchRolesForPerson("Ola Halvorsen");
         // q.fetchMoviesForPerson("Ola Halvorsen");
-        q.fetchTopCompaniesByGenres();
+        // q.fetchTopCompaniesByGenres();
     }
 }
