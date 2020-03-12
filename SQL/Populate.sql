@@ -31,14 +31,14 @@ INSERT INTO Sjanger (SjangerID, Sjanger)
 VALUES ('3', 'Romantic');
 
 # Selskap
-INSERT INTO Selskap (SelskapID, URL, Land, Addresse)
-VALUES ('1', 'https://www.norskeselskab.no/', 'Norway', 'Norway Avenue 1');
+INSERT INTO Selskap (SelskapID, Navn, URL, Land, Addresse)
+VALUES ('1', 'Det Norske Selskab', 'https://www.norskeselskab.no/', 'Norway', 'Norway Avenue 1');
 
-INSERT INTO Selskap (SelskapID, URL, Land, Addresse)
-VALUES ('2', 'https://www.knowit.no/', 'Norway', 'Lakkegata 53');
+INSERT INTO Selskap (SelskapID, Navn, URL, Land, Addresse)
+VALUES ('2', 'Knowit', 'https://www.knowit.no/', 'Norway', 'Lakkegata 53');
 
-INSERT INTO Selskap (SelskapID, URL, Land, Addresse)
-VALUES ('3', 'https://www.bouvet.no/', 'Norway', 'Sørkedalsveien 8');
+INSERT INTO Selskap (SelskapID, Navn, URL, Land, Addresse)
+VALUES ('3', 'Bouvet', 'https://www.bouvet.no/', 'Norway', 'Sørkedalsveien 8');
 
 # Bruker
 INSERT INTO Bruker (BrukerID, Brukernavn)

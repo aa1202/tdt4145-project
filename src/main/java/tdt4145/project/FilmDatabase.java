@@ -64,10 +64,10 @@ public class FilmDatabase {
         Queries q = new Queries();
         q.connect();
 
-        fd.welcomeMsg();
-        fd.userInteraction(q);
+        // d.welcomeMsg();
+        // fd.userInteraction(q);
         // Queries
         // q.fetchMoviesForPerson("Ola Halvorsen");
-        // q.fetchTopCompaniesByGenres();
+        q.fetchTopCompaniesByGenres();
     }
 }
